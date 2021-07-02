@@ -1,0 +1,23 @@
+@use "../../styles/variables" as v;
+
+._button {
+  padding: 0.75rem 1rem;
+  font-size: 5vw;
+  font-weight: bold;
+  width: 36vw;
+
+  border-radius: 1.15rem;
+  border: 2px solid v.$blue_dark;
+}
+
+.primary {
+  @extend ._button;
+  background-color: v.$blue_dark;
+  color: white;
+}
+
+.secondary {
+  @extend ._button;
+  background-color: white;
+  color: v.$blue_dark;
+}

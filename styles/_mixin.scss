@@ -1,0 +1,16 @@
+@use "./variables" as v;
+
+@mixin area {
+  width: 75%;
+  @include xcenter;
+}
+
+@mixin xcenter {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin spacer($spacer: v.$spacer_l) {
+  margin-top: $spacer;
+}
