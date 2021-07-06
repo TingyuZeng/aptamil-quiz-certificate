@@ -1,8 +1,24 @@
-.logo {
+.header {
+  width: 100vw;
   z-index: 10;
+
   position: absolute;
   top: 1.125rem;
-  right: 0.8rem;
-  width: 125px;
-  height: 125px;
+
+  .back {
+    position: absolute;
+    margin-top: 1.2rem;
+    left: 2.4rem;
+  }
+
+  .logo {
+    position: absolute;
+    right: 0.8rem;
+  }
+}
+
+.visual {
+  width: 100%;
+  height: 35vh;
+  position: relative;
 }

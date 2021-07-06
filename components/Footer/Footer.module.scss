@@ -1,8 +1,8 @@
-@use "./mixin" as m;
-@use "./variables" as v;
+@use "../../styles/mixin" as m;
+@use "../../styles/variables" as v;
 
 .footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100vw;
   height: 20vh;
@@ -16,11 +16,12 @@
   }
 
   .buttons {
-    width: 100%;
+    width: 75%;
 
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     display: flex;
     justify-content: center;

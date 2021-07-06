@@ -1,0 +1,50 @@
+@use "../../styles/mixin" as m;
+@use "../../styles/variables" as v;
+
+.body {
+  @include m.spacer;
+  @include m.area;
+
+  padding-bottom: 20vh;
+
+  .logo {
+    position: relative;
+    width: 50%;
+    margin: 0 auto;
+
+    & > div {
+      position: unset !important;
+    }
+
+    img {
+      height: unset !important;
+      width: 100% !important;
+      position: relative !important;
+    }
+  }
+
+  h1 {
+    text-align: center;
+    line-height: 1.4em;
+
+    & ~ div {
+      @include m.spacer(v.$spacer_l);
+    }
+  }
+
+  h2 {
+    font-size: 14px;
+
+    &:not(:first-child) {
+      @include m.spacer(v.$spacer_m);
+    }
+
+    & ~ p {
+      @include m.spacer(v.$spacer_s);
+    }
+  }
+
+  p {
+    color: #757575;
+  }
+}

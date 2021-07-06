@@ -1,0 +1,31 @@
+@use "./mixin" as m;
+@use "./variables" as v;
+
+.example {
+  width: 100vw;
+  margin: auto -12.5vw;
+  padding: auto 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 0.5rem;
+
+  .image {
+    width: 30%;
+    position: relative;
+    filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.1));
+
+    img {
+      border-radius: 4px;
+    }
+
+    p {
+      color: #757575;
+      font-weight: 300;
+      font-size: 0.75rem;
+      width: 80%;
+      margin: 0.5rem auto;
+    }
+  }
+}
