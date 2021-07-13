@@ -8,7 +8,8 @@ import expire from "../public/example-expire.png";
 import fail from "../public/example-fail.png";
 
 import Base from "../components/Base/Base";
-import BodyText from "../components/BodyText/BodyText";
+import Banner from "../components/Banner/Banner";
+import Content from "../components/Content/Content";
 import Footer from "../components/Footer/Footer";
 import Button from "../components/Button/Button";
 
@@ -27,8 +28,15 @@ const Faqs = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Base back clickHandler={() => router.back()}>
-        <BodyText title={`爱他美代购培训证书\n常见问题`}>
+      <Base>
+        <Banner
+          variants={{
+            animate: { height: "20vh", transition: { duration: 1 } },
+            exit: { height: "35vh", transition: { duration: 1 } },
+          }}
+        />
+
+        <Content title={`爱他美代购培训证书\n常见问题`} logo>
           <h2>我们为什么颁发这一证书？</h2>
           <p>
             我们德国爱他美为宣传和/或销售我们产品的代购提供线上培训。这些培训课程围绕不同主题展开，例如我们的品牌、我们的研究、我们的产品、宝宝成长，当然还有质量与安全。通过这种方式，代购能够更好地了解我们的品牌和产品，向他们的客户分享真实且最新的信息。通过我们线上培训的代购得以收获证书。
@@ -72,7 +80,7 @@ const Faqs = (props) => {
             </div>
           </div>
           <div></div>
-        </BodyText>
+        </Content>
 
         <Footer>
           <Button clickHandler={() => router.back()}>返回</Button>

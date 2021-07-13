@@ -7,9 +7,11 @@ import back from "../../public/back.svg";
 import PCScreen from "../PC/PCScreen";
 
 import classes from "./Base.module.scss";
+import { useRouter } from "next/router";
 
 const Base = (props) => {
   const [isMobile, setIsMobile] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const checkScreen = () => {
@@ -34,23 +36,14 @@ const Base = (props) => {
   return (
     <main>
       <div className={classes.header}>
-        {props.back && (
-          <div className={classes.back} onClick={props.clickHandler}>
+        {router.pathname !== "/" && (
+          <div className={classes.back} onClick={() => router.back()}>
             <Image src={back} alt="go back" width={32} height={32} />
           </div>
         )}
         <div className={classes.logo}>
           <Image src={logo} alt="logo" width={125} height={125} quality={100} />
         </div>
-      </div>
-
-      <div className={classes.visual}>
-        <Image
-          src="/main-visual.png"
-          alt="A mother holding her baby"
-          layout="fill"
-          objectFit="cover"
-        />
       </div>
 
       {props.children}

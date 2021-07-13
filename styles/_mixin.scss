@@ -14,3 +14,13 @@
 @mixin spacer($spacer: v.$spacer_l) {
   margin-top: $spacer;
 }
+
+@mixin blueBg() {
+  background-image: url("../public/curve.svg");
+  background-position: center bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
