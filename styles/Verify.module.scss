@@ -7,30 +7,6 @@
 //   opacity: 0.5;
 // }
 
-.heading {
-  @include m.blueBg;
-  max-height: 35vh;
-
-  .text {
-    position: absolute;
-    z-index: 1;
-    top: 12.5vh;
-    left: 12.5%;
-    width: 75%;
-
-    h1 {
-      font-weight: 500;
-      line-height: 1.4em;
-      margin-bottom: 2rem;
-    }
-
-    p {
-      line-height: 1.6em;
-      margin-bottom: 2rem;
-    }
-  }
-}
-
 .form {
   width: 100%;
   position: relative;
@@ -66,6 +42,7 @@
 
     &.unfold {
       min-height: 8rem;
+
       border-radius: 1.15rem;
       border: 1px solid v.$gray;
       background-color: white;
@@ -77,10 +54,17 @@
         // border-bottom: 1px solid v.$gray;
       }
 
-      & > div {
+      .players {
         border-top: 1px solid v.$gray;
         margin: auto 1rem;
         padding: 1rem 0;
+
+        max-height: 300px;
+        overflow: scroll;
+
+        & > p {
+          text-align: center;
+        }
       }
     }
   }

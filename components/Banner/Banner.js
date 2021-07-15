@@ -13,13 +13,18 @@ const Banner = ({ children, variants = null }) => {
         exit="exit"
         animate="animate"
       >
-        {children ?? (
+        {!children && (
           <Image
             src="/main-visual.png"
             alt="A mother holding her baby"
             layout="fill"
             objectFit="cover"
           />
+        )}
+        {children && (
+          <div className={classes.heading}>
+            <div className={classes.text}>{children}</div>
+          </div>
         )}
       </motion.div>
     </AnimatePresence>

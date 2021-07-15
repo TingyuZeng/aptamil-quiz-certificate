@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Aptamil Verification</title>
+        <title>爱他美代购培训证书</title>
         <meta name="description" content="Aptamil Training Game Verification" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

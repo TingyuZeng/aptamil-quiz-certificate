@@ -1,0 +1,33 @@
+@use "../../styles/variables" as v;
+
+.user {
+  display: flex;
+  width: 100%;
+  //   justify-content: space-between;
+  align-items: flex-start;
+
+  &:not(:last-child) {
+    margin-bottom: 1.25rem;
+  }
+
+  .image {
+    position: relative;
+    width: 60px;
+    height: 60px;
+
+    border-radius: 20%;
+  }
+
+  .text {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3 {
+      margin: 0;
+      font-weight: 500;
+      color: v.$gray;
+    }
+  }
+}

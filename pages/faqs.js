@@ -15,12 +15,12 @@ import Button from "../components/Button/Button";
 
 import classes from "../styles/Faqs.module.scss";
 
-const Faqs = (props) => {
+const Faqs = () => {
   const router = useRouter();
   return (
     <>
       <Head>
-        <title>Aptamil Verification</title>
+        <title>爱他美代购培训证书常见问题</title>
         <meta
           name="description"
           content="Aptamil Training Game Verification - FAQs"

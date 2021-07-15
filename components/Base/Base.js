@@ -41,7 +41,7 @@ const Base = (props) => {
             <Image src={back} alt="go back" width={32} height={32} />
           </div>
         )}
-        <div className={classes.logo}>
+        <div className={classes.logo} onClick={() => router.push("/")}>
           <Image src={logo} alt="logo" width={125} height={125} quality={100} />
         </div>
       </div>

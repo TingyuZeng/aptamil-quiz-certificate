@@ -1,0 +1,142 @@
+@use "../../styles/variables" as v;
+
+.-title {
+  padding: 5vh 0 4vh 0;
+
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.title-neg {
+  @extend .-title;
+  color: v.$gray_dark;
+}
+
+.title-pos {
+  @extend .-title;
+  padding-bottom: 1vh;
+  color: v.$green;
+}
+
+.congrats {
+  color: v.$green;
+
+  font-size: 12px;
+  line-height: 1.4em;
+  margin-bottom: clamp(18px, 5vh, 5vh);
+}
+
+.-panel {
+  min-height: 25vh;
+  border-radius: 16px;
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+}
+
+.neg {
+  @extend .-panel;
+  padding: 10% 8%;
+
+  background: linear-gradient(135deg, #e8ebee, #c2c5c8);
+
+  p {
+    color: #1a1a1a;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
+.pos {
+  @extend .-panel;
+  padding: 2% 10%;
+  background-color: white;
+  position: relative;
+
+  .bear {
+    width: 54px;
+    height: 51px;
+    position: absolute;
+    top: 0;
+    right: 2rem;
+    transform: translateY(-65%);
+  }
+
+  .logo {
+    min-height: 36px;
+    position: relative;
+    margin: auto;
+    top: 2vh;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 12px;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .details {
+    margin: auto;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 2.4em;
+
+    .detail {
+      border-bottom: 1px solid v.$gray;
+      margin: auto;
+
+      .field {
+        display: inline-block;
+        font-weight: 300;
+        min-width: 80px;
+      }
+
+      .fullScore {
+        color: v.$gray;
+      }
+    }
+  }
+}
+
+.badges {
+  margin: 2vh 0;
+  display: flex;
+  align-items: center;
+
+  .badge {
+    position: relative;
+    width: 60px;
+    height: 60px;
+  }
+
+  .exp {
+    padding-left: 10%;
+    // width: 60px;
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1.4em;
+    text-align: center;
+
+    * {
+      margin: 0;
+    }
+
+    h5 {
+      font-size: 10px;
+      font-weight: 500;
+      color: v.$blue_dark;
+    }
+
+    p {
+      font-size: 10px;
+    }
+  }
+}

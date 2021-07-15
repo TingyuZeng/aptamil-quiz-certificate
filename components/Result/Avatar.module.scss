@@ -1,0 +1,72 @@
+@use "../../styles/variables" as v;
+
+.-position {
+  position: absolute;
+  margin-top: -4rem;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.neg {
+  @extend .-position;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 18vh;
+  height: 18vh;
+  background: linear-gradient(135deg, #f8f8f8, #6f6f6f);
+  border-radius: 50%;
+
+  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.15));
+
+  .avatar {
+    width: 15vh;
+    height: 15vh;
+    background-color: v.$gray;
+    border-radius: 50%;
+  }
+}
+
+.pos {
+  @extend .-position;
+
+  background-image: url("/shield-frame.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 125px;
+  width: 100px;
+
+  display: flex;
+  justify-content: center;
+
+  .avatar {
+    -webkit-clip-path: url(#shield-mask);
+    clip-path: url(#shield-mask);
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 83px;
+    height: 104px;
+
+    & > svg {
+      place-self: center;
+    }
+  }
+}

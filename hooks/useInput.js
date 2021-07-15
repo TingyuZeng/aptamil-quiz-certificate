@@ -20,6 +20,7 @@ const useInput = ({ validateHandler, defaultPlaceholder = "" }) => {
   };
 
   const clearInput = (e) => {
+    e?.preventDefault();
     setIsTouched(false);
     setEnteredValue("");
   };

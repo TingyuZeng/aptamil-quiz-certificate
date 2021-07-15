@@ -7,13 +7,16 @@ import Content from "../components/Content/Content";
 import Button from "../components/Button/Button";
 import classes from "../styles/Verify.module.scss";
 import useInput from "../hooks/useInput";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import UserSearchItem from "../components/User/UserSearchItem";
+import { useDispatch, useSelector } from "react-redux";
+import { clear, update } from "../store/store";
+import Loader from "../components/Loader/Loader";
 
-const backend = process.env.BACKEND;
-
-const Verify = (props) => {
+const Verify = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [players, setPlayers] = useState([]);
+  const players = useSelector((state) => state.players);
+  const dispatch = useDispatch();
 
   const usernameValidateHandler = (value) => value.trim() !== "";
   const {
@@ -29,10 +32,25 @@ const Verify = (props) => {
     defaultPlaceholder: "输入微信名",
   });
 
-  // const inputClass = enteredUsernameIsValid
-  //   ? `${classes.input} ${classes.unfold}`
-  //   : classes.input;
-  const inputClass = classes.input;
+  const userSearch = useCallback((name) => {
+    setIsLoading(true);
+    axios
+      .get(
+        `https://training-game-strapi.herokuapp.com/players?nickname_contains=${name}`
+      )
+      .then((res) => {
+        setIsLoading(false);
+        dispatch(update({ players: [...res.data] }));
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        console.log(error.message);
+      });
+  }, []);
+
+  const inputClass = enteredUsernameIsValid
+    ? `${classes.input} ${classes.unfold}`
+    : classes.input;
 
   let btnClass = classes.action;
   if (usernameInputIsInvalid)
@@ -45,40 +63,41 @@ const Verify = (props) => {
       console.log("illegal!");
       return;
     }
-
-    axios
-      .get(
-        `https://training-game-strapi.herokuapp.com/players?nickname_contains=${enteredUsername}`
-      )
-      .then((res) => {
-        setPlayers([...res.data]);
-        console.log(players);
-      })
-      .catch((error) => console.log(error.message));
+    userSearch(enteredUsername);
   };
 
+  // Live-search
+  useEffect(() => {
+    if (!enteredUsernameIsValid) {
+      dispatch(clear());
+      return;
+    }
+    setIsLoading(true);
+    const timeId = setTimeout(() => {
+      userSearch(enteredUsername);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeId);
+      setIsLoading(false);
+    };
+  }, [enteredUsername]);
+
+  console.log("players: ", players);
   return (
     <>
       <Head>
-        <title>Aptamil Verification</title>
+        <title>爱他美代购培训证书验证通道</title>
         <meta name="description" content="Aptamil Training Game Verification" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Base>
-        <Banner
-        //   variants={{
-        //     initial: { height: "35vh" },
-        //   }}
-        >
-          <div className={classes.heading}>
-            <div className={classes.text}>
-              <h1>验证培训通道</h1>
-              <p>
-                请输入代购的微信用户名，查询他/她是否成功通过了我们的培训且获得了证书。
-              </p>
-            </div>
-          </div>
+        <Banner>
+          <h1>验证培训通道</h1>
+          <p>
+            请输入代购的微信用户名，查询他/她是否成功通过了我们的培训且获得了证书。
+          </p>
         </Banner>
 
         <Content>
@@ -95,7 +114,25 @@ const Verify = (props) => {
               {usernameInputIsInvalid && (
                 <p className={classes.invalid}>请输入微信名</p>
               )}
-              {/* {enteredUsernameIsValid && <div>hello</div>} */}
+              {isLoading && <Loader />}
+
+              {enteredUsernameIsValid && !isLoading && players.length > 0 && (
+                <div className={classes.players}>
+                  {players.map((player) => (
+                    <UserSearchItem player={player} key={player.headimgurl} />
+                  ))}
+                </div>
+              )}
+
+              {enteredUsernameIsValid && !isLoading && players.length === 0 && (
+                <div className={classes.players}>
+                  <p>
+                    无法找到该代购信息
+                    <br />
+                    请重新输入用户名并尝试
+                  </p>
+                </div>
+              )}
             </div>
             <div className={btnClass}>
               <Button type="submit" value="验证">
