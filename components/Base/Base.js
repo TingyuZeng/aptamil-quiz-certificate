@@ -10,7 +10,7 @@ import classes from "./Base.module.scss";
 import { useRouter } from "next/router";
 
 const Base = (props) => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
   const router = useRouter();
 
   useEffect(() => {

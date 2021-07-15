@@ -57,8 +57,12 @@ const ResultPanel = () => {
 
   const certificateNum =
     "0".repeat(8 - player.id.toString().length) + player.id;
+  const issueDate = new Date(player.created_at);
   const issue_at = player.created_at.substr(0, 10);
-  const expired_at = Date.parse(player.created_at) + 31536000;
+  const expiredTS = new Date(player.created_at).setFullYear(
+    issueDate.getFullYear() + 1
+  );
+  const expired_at = new Date(expiredTS).toISOString().substr(0, 10);
   const score = player.score;
 
   return (
@@ -79,13 +83,7 @@ const ResultPanel = () => {
         </div>
 
         <div className={classes.logo}>
-          <Image
-            src={logo}
-            width={422}
-            height={72}
-            objectFit="contain"
-            placeholder="blur"
-          />
+          <Image src={logo} width={422} height={72} objectFit="contain" />
         </div>
 
         <h2>成就证书</h2>
