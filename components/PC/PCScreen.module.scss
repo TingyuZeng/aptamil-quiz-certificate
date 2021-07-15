@@ -1,0 +1,58 @@
+@use "../../styles/variables" as v;
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  .bg {
+    z-index: 0;
+    transform: translateY(-8%);
+  }
+
+  .text {
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    * {
+      margin: 0;
+      margin-bottom: 20px;
+
+      color: v.$blue_dark;
+    }
+
+    h1 {
+      font-size: 64px;
+      font-weight: bold;
+      letter-spacing: 4px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 40px;
+      font-weight: 500;
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: 500;
+      color: v.$green;
+    }
+
+    .qrcode {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
