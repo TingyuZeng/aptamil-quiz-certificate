@@ -92,6 +92,7 @@ const Verify = () => {
       <Head>
         <title>爱他美代购培训证书验证通道</title>
         <meta name="description" content="Aptamil Training Game Verification" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

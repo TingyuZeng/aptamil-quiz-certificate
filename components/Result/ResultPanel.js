@@ -70,11 +70,22 @@ const ResultPanel = () => {
 
       <div className={classes.pos}>
         <div className={classes.bear}>
-          <Image src={bear} layout="fill" objectFit="contain" />
+          <Image
+            src={bear}
+            layout="fill"
+            objectFit="contain"
+            placeholder="blur"
+          />
         </div>
 
         <div className={classes.logo}>
-          <Image src={logo} width={422} height={72} objectFit="contain" />
+          <Image
+            src={logo}
+            width={422}
+            height={72}
+            objectFit="contain"
+            placeholder="blur"
+          />
         </div>
 
         <h2>成就证书</h2>
@@ -106,7 +117,12 @@ const ResultPanel = () => {
 
           <div className={classes.badges}>
             <div className={classes.badge}>
-              <Image src={badge2021} layout="fill" objectFit="contain" />
+              <Image
+                src={badge2021}
+                layout="fill"
+                objectFit="contain"
+                placeholder="blur"
+              />
             </div>
             <div className={classes.exp}>
               <h5>

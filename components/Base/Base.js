@@ -42,7 +42,14 @@ const Base = (props) => {
           </div>
         )}
         <div className={classes.logo} onClick={() => router.push("/")}>
-          <Image src={logo} alt="logo" width={125} height={125} quality={100} />
+          <Image
+            src={logo}
+            alt="logo"
+            width={125}
+            height={125}
+            quality={100}
+            placeholder="blur"
+          />
         </div>
       </div>
 

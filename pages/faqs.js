@@ -25,6 +25,7 @@ const Faqs = () => {
           name="description"
           content="Aptamil Training Game Verification - FAQs"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -61,7 +62,13 @@ const Faqs = () => {
           <p>1. 在验证页面填写代购的微信名</p>
           <div className={classes.example}>
             <div className={classes.image}>
-              <Image src={start} width={750} height={1624} alt="开始验证画面" />
+              <Image
+                src={start}
+                width={750}
+                height={1624}
+                alt="开始验证画面"
+                placeholder="blur"
+              />
             </div>
           </div>
           <p>2. 系统会提供3种查询结果：</p>
@@ -72,6 +79,7 @@ const Faqs = () => {
                 width={750}
                 height={1624}
                 alt="查询结果1:通过"
+                placeholder="blur"
               />
               <p>该代购通过我们的培训并获得了证书</p>
             </div>
@@ -81,6 +89,7 @@ const Faqs = () => {
                 width={750}
                 height={1624}
                 alt="查询结果2:过期"
+                placeholder="blur"
               />
               <p>该代购的证书已过期</p>
             </div>
@@ -90,6 +99,7 @@ const Faqs = () => {
                 width={750}
                 height={1624}
                 alt="查询结果3:未通过"
+                placeholder="blur"
               />
               <p>该代购未通过我们的培训，没有获得证书</p>
             </div>
