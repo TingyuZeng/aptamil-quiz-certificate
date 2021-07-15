@@ -32,21 +32,24 @@ const Verify = () => {
     defaultPlaceholder: "输入微信名",
   });
 
-  const userSearch = useCallback((name) => {
-    setIsLoading(true);
-    axios
-      .get(
-        `https://training-game-strapi.herokuapp.com/players?nickname_contains=${name}`
-      )
-      .then((res) => {
-        setIsLoading(false);
-        dispatch(update({ players: [...res.data] }));
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        console.log(error.message);
-      });
-  }, []);
+  const userSearch = useCallback(
+    (name) => {
+      setIsLoading(true);
+      axios
+        .get(
+          `https://training-game-strapi.herokuapp.com/players?nickname_contains=${name}`
+        )
+        .then((res) => {
+          setIsLoading(false);
+          dispatch(update({ players: [...res.data] }));
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          console.log(error.message);
+        });
+    },
+    [dispatch]
+  );
 
   const inputClass = enteredUsernameIsValid
     ? `${classes.input} ${classes.unfold}`
@@ -81,7 +84,7 @@ const Verify = () => {
       clearTimeout(timeId);
       setIsLoading(false);
     };
-  }, [enteredUsername]);
+  }, [enteredUsername, dispatch]);
 
   console.log("players: ", players);
   return (

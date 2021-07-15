@@ -61,21 +61,36 @@ const Faqs = () => {
           <p>1. 在验证页面填写代购的微信名</p>
           <div className={classes.example}>
             <div className={classes.image}>
-              <Image src={start} width={750} height={1624} />
+              <Image src={start} width={750} height={1624} alt="开始验证画面" />
             </div>
           </div>
           <p>2. 系统会提供3种查询结果：</p>
           <div className={classes.example}>
             <div className={classes.image}>
-              <Image src={pass} width={750} height={1624} />
+              <Image
+                src={pass}
+                width={750}
+                height={1624}
+                alt="查询结果1:通过"
+              />
               <p>该代购通过我们的培训并获得了证书</p>
             </div>
             <div className={classes.image}>
-              <Image src={expire} width={750} height={1624} />
+              <Image
+                src={expire}
+                width={750}
+                height={1624}
+                alt="查询结果2:过期"
+              />
               <p>该代购的证书已过期</p>
             </div>
             <div className={classes.image}>
-              <Image src={fail} width={750} height={1624} />
+              <Image
+                src={fail}
+                width={750}
+                height={1624}
+                alt="查询结果3:未通过"
+              />
               <p>该代购未通过我们的培训，没有获得证书</p>
             </div>
           </div>
