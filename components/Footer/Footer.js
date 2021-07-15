@@ -10,7 +10,7 @@ const Footer = ({ children }) => {
   if (typeof children === "undefined") {
     buttons = (
       <>
-        <Button primary={false} clickHandler={() => router.back()}>
+        <Button primary={false} clickHandler={() => router.push("/verify")}>
           返回
         </Button>
         <Button clickHandler={() => router.back()}>分享</Button>

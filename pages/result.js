@@ -9,8 +9,6 @@ import Footer from "../components/Footer/Footer";
 import ResultPanel from "../components/Result/ResultPanel";
 
 const Result = () => {
-  const player = useSelector((state) => state.players)[0];
-  //   console.log(player);
   return (
     <>
       <Head>
@@ -32,8 +30,8 @@ const Result = () => {
         </Banner>
 
         <Content>
-          <Avatar player={player} />
-          <ResultPanel player={player} />
+          <Avatar />
+          <ResultPanel />
         </Content>
 
         <Footer />

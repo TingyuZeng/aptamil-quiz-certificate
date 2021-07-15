@@ -6,17 +6,42 @@ import badge2021 from "../../public/badge-2021.png";
 import logo from "../../public/logo-horizontal.svg";
 
 import classes from "./ResultPanel.module.scss";
+import { useSelector } from "react-redux";
 
 const SORRY = {
   expired: "很遗憾该用户的证书已过期。",
   notPassed: "很遗憾该用户未通过我们的爱他美代购培训，因而没有获得培训证书。",
 };
 
-const ResultPanel = ({ player }) => {
+const ResultPanel = () => {
+  const player = useSelector((state) => state.players)[0];
   const router = useRouter();
 
+  // Redirect if player is empty
+  useEffect(() => {
+    let tId;
+    if (!player) {
+      tId = setTimeout(() => {
+        router.push("/verify");
+      }, 5000);
+    }
+
+    return () => {
+      if (tId) {
+        clearTimeout(tId);
+      }
+    };
+  }, []);
+
   if (!player) {
-    return <p>not allowed</p>;
+    return (
+      <>
+        <div className={classes["title-neg"]}>您没有输入微信名！</div>
+        <div className={classes.neg}>
+          <p>请返回查询页输入微信名查询。 您将于5秒后自动返回查询页面。</p>
+        </div>
+      </>
+    );
   }
 
   if (!player.isCertified) {

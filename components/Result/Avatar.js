@@ -1,10 +1,14 @@
 import Image from "next/image";
+import { useSelector } from "react-redux";
 import placeholder from "../../public/avatar-placeholder.png";
 
 import classes from "./Avatar.module.scss";
 
-const Avatar = ({ player }) => {
-  const { headimgurl, isCertified } = player;
+const Avatar = () => {
+  const player = useSelector((state) => state.players)[0];
+
+  const headimgurl = player?.headimgurl ?? placeholder;
+  const isCertified = player?.isCertified ?? false;
 
   if (isCertified)
     return (
@@ -33,11 +37,7 @@ const Avatar = ({ player }) => {
   return (
     <div className={classes.neg}>
       <div className={classes.avatar}>
-        <Image
-          src={headimgurl ?? placeholder}
-          layout="fill"
-          objectFit="cover"
-        />
+        <Image src={headimgurl} layout="fill" objectFit="cover" />
       </div>
     </div>
   );
