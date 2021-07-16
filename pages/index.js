@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
 
-import classes from "../styles/Home.module.scss";
 import Base from "../components/Base/Base";
 import Banner from "../components/Banner/Banner";
 import Footer from "../components/Footer/Footer";
