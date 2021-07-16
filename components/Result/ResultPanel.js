@@ -101,7 +101,7 @@ const ResultPanel = () => {
             <span>{certificateNum}</span>
             {shop_link && (
               <button className={classes.shop}>
-                <a href={shop_link} target="_blank">
+                <a href={shop_link} target="_blank" rel="noreferrer">
                   官方货源店铺
                 </a>
               </button>

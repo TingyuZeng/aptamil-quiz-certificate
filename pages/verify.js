@@ -84,7 +84,7 @@ const Verify = () => {
       clearTimeout(timeId);
       setIsLoading(false);
     };
-  }, [enteredUsername, dispatch]);
+  }, [enteredUsername, dispatch, enteredUsernameIsValid]);
 
   return (
     <>
