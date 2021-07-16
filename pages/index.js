@@ -35,10 +35,16 @@ export default function Home() {
         </Content>
 
         <Footer>
-          <Button primary={false} clickHandler={() => router.push("/faqs")}>
+          <Button
+            left
+            primary={false}
+            clickHandler={() => router.push("/faqs")}
+          >
             查看详情
           </Button>
-          <Button clickHandler={() => router.push("/verify")}>继续</Button>
+          <Button right clickHandler={() => router.push("/verify")}>
+            继续
+          </Button>
         </Footer>
       </Base>
     </>

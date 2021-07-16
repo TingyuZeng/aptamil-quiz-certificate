@@ -101,7 +101,7 @@ const Verify = () => {
       <Base>
         <Banner
           variants={{
-            animate: {
+            initial: {
               height: "280px",
               transition: { duration: 1 },
             },

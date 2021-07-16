@@ -14,10 +14,16 @@ const Footer = ({ children }) => {
   if (typeof children === "undefined") {
     buttons = (
       <>
-        <Button primary={false} clickHandler={() => router.push("/verify")}>
+        <Button
+          left
+          primary={false}
+          clickHandler={() => router.push("/verify")}
+        >
           返回
         </Button>
-        <Button clickHandler={() => setModalIsShown(true)}>分享</Button>
+        <Button right clickHandler={() => setModalIsShown(true)}>
+          分享
+        </Button>
         {modalIsShown && (
           <ClientOnlyPortal selector="#modal">
             <Modal clickHandler={() => setModalIsShown(false)} />
