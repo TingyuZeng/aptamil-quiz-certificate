@@ -99,7 +99,14 @@ const Verify = () => {
       </Head>
 
       <Base>
-        <Banner>
+        <Banner
+          variants={{
+            animate: {
+              height: "280px",
+              transition: { duration: 1 },
+            },
+          }}
+        >
           <h1>验证培训通道</h1>
           <p>
             请输入代购的微信用户名，查询他/她是否成功通过了我们的培训且获得了证书。

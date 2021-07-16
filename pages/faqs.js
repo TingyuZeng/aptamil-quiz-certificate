@@ -36,11 +36,11 @@ const Faqs = () => {
         <Banner
           variants={{
             animate: {
-              height: "clamp(150px, 20vh, 20vh)",
+              height: "150px",
               transition: { duration: 1 },
             },
             exit: {
-              height: "clamp(250px, 35vh, 35vh)",
+              height: "250px",
               transition: { duration: 1 },
             },
           }}

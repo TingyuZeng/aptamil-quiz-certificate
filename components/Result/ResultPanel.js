@@ -56,7 +56,7 @@ const ResultPanel = () => {
   }
 
   const certificateNum =
-    "0".repeat(8 - player.id.toString().length) + player.id;
+    "0".repeat(6 - player.id.toString().length) + player.id;
   const issueDate = new Date(player.created_at);
   const issue_at = player.created_at.substr(0, 10);
   const expiredTS = new Date(player.created_at).setFullYear(

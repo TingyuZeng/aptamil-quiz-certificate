@@ -9,7 +9,6 @@ import Footer from "../components/Footer/Footer";
 import Button from "../components/Button/Button";
 import Content from "../components/Content/Content";
 import { useRouter } from "next/router";
-import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const router = useRouter();
