@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Button from "../Button/Button";
+import Modal from "../Modal/Modal";
 
 import classes from "./Footer.module.scss";
+import ClientOnlyPortal from "../Modal/ClientOnlyPortal";
 
 const Footer = ({ children }) => {
+  const [modalIsShown, setModalIsShown] = useState(false);
   const router = useRouter();
 
   let buttons;
@@ -13,7 +17,12 @@ const Footer = ({ children }) => {
         <Button primary={false} clickHandler={() => router.push("/verify")}>
           返回
         </Button>
-        <Button clickHandler={() => router.back()}>分享</Button>
+        <Button clickHandler={() => setModalIsShown(true)}>分享</Button>
+        {modalIsShown && (
+          <ClientOnlyPortal selector="#modal">
+            <Modal clickHandler={() => setModalIsShown(false)} />
+          </ClientOnlyPortal>
+        )}
       </>
     );
   }

@@ -27,7 +27,7 @@ const Result = () => {
       <Base>
         <Banner
           variants={{
-            initial: { height: "30vh" },
+            initial: { height: "clamp(200px, 30vh, 30vh)" },
           }}
         >
           <h1>查询结果</h1>

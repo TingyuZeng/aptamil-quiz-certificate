@@ -7,6 +7,7 @@
 
   position: relative;
   padding-bottom: 20vh;
+  // margin-bottom: 20vh;
 
   .logo {
     position: relative;
@@ -27,6 +28,7 @@
   h1 {
     text-align: center;
     line-height: 1.4em;
+    white-space: pre-wrap;
 
     & ~ div {
       @include m.spacer(v.$spacer_l);

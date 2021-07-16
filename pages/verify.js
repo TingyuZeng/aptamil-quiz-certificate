@@ -86,7 +86,6 @@ const Verify = () => {
     };
   }, [enteredUsername, dispatch]);
 
-  console.log("players: ", players);
   return (
     <>
       <Head>

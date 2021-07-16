@@ -16,7 +16,7 @@
   }
 
   .buttons {
-    width: 75%;
+    width: 75vw;
 
     position: absolute;
     top: 50%;
@@ -24,8 +24,8 @@
     transform: translate(-50%, -50%);
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
-    gap: 2rem;
+    gap: clamp(32px, 2rem, 2rem);
   }
 }

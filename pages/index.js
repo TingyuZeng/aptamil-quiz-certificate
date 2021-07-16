@@ -30,7 +30,7 @@ export default function Home() {
         <Banner />
 
         <Content title="爱他美代购培训证书" logo>
-          <p>
+          <p style={{ marginBottom: "80px" }}>
             欢迎！在这里您可以查询代购是否通过了我们德国爱他美关于婴幼儿奶粉的培训，并获得了证书。请点击“查看详情”了解更多关于此证书的信息，点击“继续”开始查询。
           </p>
         </Content>

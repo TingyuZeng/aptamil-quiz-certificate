@@ -64,6 +64,8 @@ const ResultPanel = () => {
   );
   const expired_at = new Date(expiredTS).toISOString().substr(0, 10);
   const score = player.score;
+  const shop_link =
+    "https://h5.cdhexingkeji.com/pages/index/index?shop_id=00fd6cfe-fe8f-4650-a4d8-4ea4094e076f";
 
   return (
     <>
@@ -97,6 +99,13 @@ const ResultPanel = () => {
           <div className={classes.detail}>
             <div className={classes.field}>证书号</div>
             <span>{certificateNum}</span>
+            {shop_link && (
+              <button className={classes.shop}>
+                <a href={shop_link} target="_blank">
+                  官方货源店铺
+                </a>
+              </button>
+            )}
           </div>
           <div className={classes.detail}>
             <div className={classes.field}>颁发日期</div>

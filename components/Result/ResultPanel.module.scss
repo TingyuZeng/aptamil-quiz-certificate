@@ -15,7 +15,7 @@
 
 .title-pos {
   @extend .-title;
-  padding-bottom: 1vh;
+  // padding-bottom: 1vh;
   color: v.$green;
 }
 
@@ -24,7 +24,7 @@
 
   font-size: 12px;
   line-height: 1.4em;
-  margin-bottom: clamp(18px, 5vh, 5vh);
+  margin-bottom: clamp(32px, 6vh, 66px);
 }
 
 .-panel {
@@ -82,6 +82,7 @@
   }
 
   .details {
+    position: relative;
     margin: auto;
 
     font-size: 12px;
@@ -89,6 +90,7 @@
     line-height: 2.4em;
 
     .detail {
+      position: relative;
       border-bottom: 1px solid v.$gray;
       margin: auto;
 
@@ -139,4 +141,18 @@
       font-size: 10px;
     }
   }
+}
+
+.shop {
+  font-size: 10px;
+  padding: 0.5em 1em;
+  border-radius: 1.2em;
+  color: white;
+  background-color: v.$blue_dark;
+  border-style: none;
+
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }

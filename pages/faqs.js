@@ -35,8 +35,14 @@ const Faqs = () => {
       <Base>
         <Banner
           variants={{
-            animate: { height: "20vh", transition: { duration: 1 } },
-            exit: { height: "35vh", transition: { duration: 1 } },
+            animate: {
+              height: "clamp(150px, 20vh, 20vh)",
+              transition: { duration: 1 },
+            },
+            exit: {
+              height: "clamp(250px, 35vh, 35vh)",
+              transition: { duration: 1 },
+            },
           }}
         />
 
@@ -63,7 +69,7 @@ const Faqs = () => {
           <h2>证书的有效期多长？</h2>
           <p>查询步骤简单快捷：</p>
           <p>1. 在验证页面填写代购的微信名</p>
-          <div className={classes.example}>
+          <div className={classes.example_1}>
             <div className={classes.image}>
               <Image
                 src={start}

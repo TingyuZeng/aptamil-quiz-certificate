@@ -4,15 +4,16 @@
 .example {
   width: 100vw;
   margin: auto -12.5vw;
-  padding: auto 1rem;
+  padding: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
-  gap: 0.5rem;
+  justify-content: space-around;
+  gap: 1vw;
 
   .image {
-    width: 30%;
+    flex: 1;
+    max-width: 30vw;
     position: relative;
     filter: drop-shadow(4px 4px 5px rgba(0, 0, 0, 0.1));
 
@@ -28,4 +29,9 @@
       margin: 0.5rem auto;
     }
   }
+}
+
+.example_1 {
+  @extend .example;
+  justify-content: center;
 }

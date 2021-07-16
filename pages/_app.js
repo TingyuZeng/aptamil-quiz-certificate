@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
       <AnimatePresence exitBeforeEnter>
+        <div id="modal" />
         <Component {...pageProps} />
       </AnimatePresence>
     </Provider>
