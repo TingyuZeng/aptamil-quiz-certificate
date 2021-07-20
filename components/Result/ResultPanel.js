@@ -63,7 +63,6 @@ const ResultPanel = () => {
     issueDate.getFullYear() + 1
   );
   const expired_at = new Date(expiredTS).toISOString().substr(0, 10);
-  const score = player.score;
   const shop_link =
     "https://h5.cdhexingkeji.com/pages/index/index?shop_id=00fd6cfe-fe8f-4650-a4d8-4ea4094e076f";
 
@@ -114,12 +113,6 @@ const ResultPanel = () => {
           <div className={classes.detail}>
             <div className={classes.field}>有效期至</div>
             <span>{expired_at}</span>
-          </div>
-          <div className={classes.detail}>
-            <div className={classes.field}>成绩</div>
-            <span>
-              {score} <span className={classes.fullScore}>/ 500</span>
-            </span>
           </div>
 
           <div className={classes.badges}>
