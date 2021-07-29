@@ -33,6 +33,7 @@ const ResultPanel = () => {
     };
   }, []);
 
+  // Case "USER NOT FOUND"
   if (!player) {
     return (
       <>
@@ -44,7 +45,8 @@ const ResultPanel = () => {
     );
   }
 
-  if (!player.isCertified) {
+  // Case "NOT PASSED"
+  if (player.certificationDate.length === 0) {
     return (
       <>
         <div className={classes["title-neg"]}>抱歉！</div>
@@ -57,15 +59,29 @@ const ResultPanel = () => {
 
   const certificateNum =
     "0".repeat(6 - player.id.toString().length) + player.id;
-  const issueDate = new Date(player.created_at);
+  const cLength = player.certificationDate.length;
+  const issueDate = new Date(player.certificationDate[cLength - 1].date);
   const issue_at = player.created_at.substr(0, 10);
-  const expiredTS = new Date(player.created_at).setFullYear(
-    issueDate.getFullYear() + 1
-  );
+  const expiredTS = new Date(
+    player.certificationDate[cLength - 1].date
+  ).setFullYear(issueDate.getFullYear() + 1);
   const expired_at = new Date(expiredTS).toISOString().substr(0, 10);
-  const shop_link =
-    "https://h5.cdhexingkeji.com/pages/index/index?shop_id=00fd6cfe-fe8f-4650-a4d8-4ea4094e076f";
 
+  const shop_link = player.shopurl;
+
+  // Case "EXPIRED"
+  if (new Date() - expiredTS >= 0) {
+    return (
+      <>
+        <div className={classes["title-neg"]}>抱歉！</div>
+        <div className={classes.neg}>
+          <p>{SORRY.expired}</p>
+        </div>
+      </>
+    );
+  }
+
+  // Case "PASSED"
   return (
     <>
       <div className={classes["title-pos"]}>恭喜！</div>
