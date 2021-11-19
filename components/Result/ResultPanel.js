@@ -67,7 +67,7 @@ const ResultPanel = () => {
   ).setFullYear(issueDate.getFullYear() + 1);
   const expired_at = new Date(expiredTS).toISOString().substr(0, 10);
 
-  const shop_link = player.shopurl;
+  // const shop_link = player.shopurl;
 
   // Case "EXPIRED"
   if (new Date() - expiredTS >= 0) {
@@ -103,54 +103,77 @@ const ResultPanel = () => {
           <Image src={logo} width={422} height={72} objectFit="contain" />
         </div>
 
-        <h2>成就证书</h2>
-        <h3>证书授予：</h3>
+        <h2>
+          成就证书{" "}
+          <small className={classes.en}>Certificate of Achievement</small>
+        </h2>
+
+        <h3>
+          证书授予：
+          <small className={classes.en}>This certificate is awarded to:</small>
+        </h3>
 
         <div className={classes.details}>
           <div className={classes.detail}>
-            <div className={classes.field}>用户名</div>
+            <div className={classes.field}>
+              <span>用户名</span>
+              <small className={classes.en}>Name</small>
+            </div>
             <span>{player.nickname}</span>
           </div>
           <div className={classes.detail}>
-            <div className={classes.field}>证书号</div>
+            <div className={classes.field}>
+              <span>证书号</span>
+              <small className={classes.en}>Certificate #</small>
+            </div>
             <span>{certificateNum}</span>
-            {shop_link && (
+            {/* {shop_link && (
               <button className={classes.shop}>
                 <a href={shop_link} target="_blank" rel="noreferrer">
                   官方货源店铺
                 </a>
               </button>
-            )}
+            )} */}
           </div>
           <div className={classes.detail}>
-            <div className={classes.field}>颁发日期</div>
+            <div className={classes.field}>
+              <span>颁发日期</span>
+              <small className={classes.en}>Obtained on</small>
+            </div>
             <span>{issue_at}</span>
           </div>
           <div className={classes.detail}>
-            <div className={classes.field}>有效期至</div>
+            <div className={classes.field}>
+              <span>有效期至</span>
+              <small className={classes.en}>Valid until</small>
+            </div>
             <span>{expired_at}</span>
           </div>
 
           <div className={classes.badges}>
             <div className={classes.badge}>
-              <Image
-                src={badge2021}
-                layout="fill"
-                objectFit="contain"
-                placeholder="blur"
-              />
-            </div>
-            <div className={classes.exp}>
-              <h5>
+              <div className={classes.flipper}>
+                <div className={classes.front}>
+                  <Image
+                    src={badge2021}
+                    layout="fill"
+                    objectFit="contain"
+                    placeholder="blur"
+                  />
+                </div>
+                <div className={classes.back}>
+                  <p className={classes.time}>
+                    2021年夏季<small className={classes.en}>Summer 2021</small>
+                  </p>
+                  <p>
+                    5门课程<small className={classes.en}>5 Courses</small>
+                  </p>
+                </div>
+              </div>
+              <h5 className={classes.title}>
                 第一期培训
-                <br />
-                2021年夏季
+                <small className={classes.en}>1st Training Session</small>
               </h5>
-              <p>
-                5门课程
-                <br />
-                1次在线培训
-              </p>
             </div>
           </div>
         </div>
