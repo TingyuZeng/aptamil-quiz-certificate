@@ -1,13 +1,12 @@
 import axios from "axios";
 import Head from "next/head";
-import Image from "next/image";
 import Base from "../components/Base/Base";
 import Banner from "../components/Banner/Banner";
 import Content from "../components/Content/Content";
 import Button from "../components/Button/Button";
 import classes from "../styles/Verify.module.scss";
 import useInput from "../hooks/useInput";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import UserSearchItem from "../components/User/UserSearchItem";
 import { useDispatch, useSelector } from "react-redux";
 import { clear, update } from "../store/store";

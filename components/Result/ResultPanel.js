@@ -12,7 +12,8 @@ const SORRY = {
   notPassed: "很遗憾该用户未通过我们的爱他美代购培训，因而没有获得培训证书。",
 };
 
-const bear = "ice_bear_533b416102.png";
+const bear =
+  "https://res.cloudinary.com/duykdzv1k/image/upload/v1638875186/ice_bear_533b416102.png";
 
 const ResultPanel = () => {
   const router = useRouter();

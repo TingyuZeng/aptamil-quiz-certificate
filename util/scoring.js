@@ -3,14 +3,16 @@ const COHORT_NUM = 2;
 const COHORT_INFO = {
   1: {
     cohort: 1,
-    badgeUrl: "badge_3x_2c1074f131.png",
+    badgeUrl:
+      "https://res.cloudinary.com/duykdzv1k/image/upload/v1624731750/badge_3x_2c1074f131.png",
     courseTime: { cn: "2021年夏季", en: "Summer 2021" },
     courseContent: { cn: "5门课程", en: "5 Courses" },
     courseTitle: { cn: "第一期培训", en: "1st Training Session" },
   },
   2: {
     cohort: 2,
-    badgeUrl: "badge_cohort2_a03de67ef7.png",
+    badgeUrl:
+      "https://res.cloudinary.com/duykdzv1k/image/upload/v1638552658/badge_cohort2_a03de67ef7.png",
     courseTime: { cn: "2021年冬季", en: "Winter 2021" },
     courseContent: { cn: "2门课程", en: "2 Courses" },
     courseTitle: { cn: "第二期培训", en: "2nd Training Session" },

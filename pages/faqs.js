@@ -10,10 +10,14 @@ import Button from "../components/Button/Button";
 
 import classes from "../styles/Faqs.module.scss";
 
-const START = "example_start_b3af7213a3.png";
-const PASSED = "example_pass_9b5a6f0025.png";
-const EXPIRED = "example_expire_0dc82ad165.png";
-const FAILED = "example_fail_4d690a650c.png";
+const START =
+  "https://res.cloudinary.com/duykdzv1k/image/upload/v1638875502/example_start_b3af7213a3.png";
+const PASSED =
+  "https://res.cloudinary.com/duykdzv1k/image/upload/v1638875502/example_pass_9b5a6f0025.png";
+const EXPIRED =
+  "https://res.cloudinary.com/duykdzv1k/image/upload/v1638875501/example_expire_0dc82ad165.png";
+const FAILED =
+  "https://res.cloudinary.com/duykdzv1k/image/upload/v1638875501/example_fail_4d690a650c.png";
 
 const Faqs = () => {
   const router = useRouter();
