@@ -37,7 +37,7 @@ const Verify = () => {
       setIsLoading(true);
       axios
         .get(
-          `https://aptamil-strapi.onrender.com/players?nickname_contains=${name}`
+          `https://aptamil-backend.onrender.com/players?nickname_contains=${name}`
         )
         .then((res) => {
           setIsLoading(false);

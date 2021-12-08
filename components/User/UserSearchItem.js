@@ -32,6 +32,7 @@ const UserSearchItem = (props) => {
           objectFit="cover"
           placeholder="blur"
           blurDataURL={BLURDATAURL}
+          unoptimized={true}
         />
       </div>
       <div className={classes.text}>

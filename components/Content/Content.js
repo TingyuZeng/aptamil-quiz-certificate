@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import logoHor from "../../public/logo-horizontal.svg";
 
 import classes from "./Content.module.scss";
 
@@ -25,7 +24,13 @@ const Content = ({
       >
         {logo && (
           <div className={classes.logo}>
-            <Image src={logoHor} alt="logo" layout="fill" objectFit="contain" />
+            <Image
+              src="/logo-horizontal.svg"
+              alt="logo"
+              layout="fill"
+              objectFit="contain"
+              unoptimized={true}
+            />
           </div>
         )}
 

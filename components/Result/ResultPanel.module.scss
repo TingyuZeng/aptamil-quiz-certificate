@@ -131,80 +131,12 @@
 
 .badges {
   margin: 2vh 0;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 16px;
+  justify-items: center;
   align-items: center;
-
-  .badge {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    margin-bottom: 40px;
-  }
-
-  .flipper {
-    perspective: 500;
-    transform-style: preserve-3d;
-    position: relative;
-    transition: 0.5s;
-    width: 100%;
-    height: 100%;
-
-    &:hover {
-      transform: rotateY(180deg);
-    }
-
-    .front,
-    .back {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      backface-visibility: hidden;
-    }
-
-    .front {
-      z-index: 2;
-      transform: rotateY(0);
-    }
-
-    .back {
-      transform: rotateY(180deg);
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      font-weight: 400;
-
-      .time {
-        color: black;
-      }
-
-      small {
-        display: block;
-      }
-
-      * {
-        margin: 0;
-      }
-    }
-  }
-
-  .title {
-    font-size: 12px;
-    line-height: 16px;
-    width: 100%;
-    margin: 0;
-    padding: 8px 0;
-    text-align: center;
-    font-weight: 500;
-    small {
-      display: block;
-      color: v.$gray;
-    }
-  }
 }
 
 .shop {

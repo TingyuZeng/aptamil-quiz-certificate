@@ -1,21 +1,33 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import bear from "../../public/ice-bear.png";
-import badge2021 from "../../public/badge-2021.png";
-import logo from "../../public/logo-horizontal.svg";
 
 import classes from "./ResultPanel.module.scss";
 import { useSelector } from "react-redux";
+import { getCertificateInfo, restructurePlayer } from "../../util/scoring";
+import Badge from "./Badge";
 
 const SORRY = {
   expired: "很遗憾该用户的证书已过期。",
   notPassed: "很遗憾该用户未通过我们的爱他美代购培训，因而没有获得培训证书。",
 };
 
+const bear = "ice_bear_533b416102.png";
+
 const ResultPanel = () => {
-  const player = useSelector((state) => state.players)[0];
   const router = useRouter();
+
+  const rawPlayer = useSelector((state) => state.players)[0];
+  const player = restructurePlayer(rawPlayer);
+
+  // Check if a player has badges
+  const result = getCertificateInfo(player);
+  console.log(result);
+
+  // Produce badge elements
+  const badgeEls = result.certificates.map((certificate) => (
+    <Badge key={certificate.badgeUrl} certificate={certificate} />
+  ));
 
   // Redirect if player is empty
   useEffect(() => {
@@ -46,7 +58,7 @@ const ResultPanel = () => {
   }
 
   // Case "NOT PASSED"
-  if (player.certificationDate.length === 0) {
+  if (result.certificates.length === 0) {
     return (
       <>
         <div className={classes["title-neg"]}>抱歉！</div>
@@ -57,20 +69,8 @@ const ResultPanel = () => {
     );
   }
 
-  const certificateNum =
-    "0".repeat(6 - player.id.toString().length) + player.id;
-  const cLength = player.certificationDate.length;
-  const issueDate = new Date(player.certificationDate[cLength - 1].date);
-  const issue_at = player.created_at.substr(0, 10);
-  const expiredTS = new Date(
-    player.certificationDate[cLength - 1].date
-  ).setFullYear(issueDate.getFullYear() + 1);
-  const expired_at = new Date(expiredTS).toISOString().substr(0, 10);
-
-  // const shop_link = player.shopurl;
-
   // Case "EXPIRED"
-  if (new Date() - expiredTS >= 0) {
+  if (result.expired) {
     return (
       <>
         <div className={classes["title-neg"]}>抱歉！</div>
@@ -91,20 +91,21 @@ const ResultPanel = () => {
 
       <div className={classes.pos}>
         <div className={classes.bear}>
-          <Image
-            src={bear}
-            layout="fill"
-            objectFit="contain"
-            placeholder="blur"
-          />
+          <Image src={bear} layout="fill" objectFit="contain" />
         </div>
 
         <div className={classes.logo}>
-          <Image src={logo} width={422} height={72} objectFit="contain" />
+          <Image
+            src="/logo-horizontal.svg"
+            width={422}
+            height={72}
+            objectFit="contain"
+            unoptimized={true}
+          />
         </div>
 
         <h2>
-          成就证书{" "}
+          成就证书
           <small className={classes.en}>Certificate of Achievement</small>
         </h2>
 
@@ -119,14 +120,14 @@ const ResultPanel = () => {
               <span>用户名</span>
               <small className={classes.en}>Name</small>
             </div>
-            <span>{player.nickname}</span>
+            <span>{result.name}</span>
           </div>
           <div className={classes.detail}>
             <div className={classes.field}>
               <span>证书号</span>
               <small className={classes.en}>Certificate #</small>
             </div>
-            <span>{certificateNum}</span>
+            <span>{result.certificateNum}</span>
             {/* {shop_link && (
               <button className={classes.shop}>
                 <a href={shop_link} target="_blank" rel="noreferrer">
@@ -140,42 +141,17 @@ const ResultPanel = () => {
               <span>颁发日期</span>
               <small className={classes.en}>Obtained on</small>
             </div>
-            <span>{issue_at}</span>
+            <span>{result.issued_at}</span>
           </div>
           <div className={classes.detail}>
             <div className={classes.field}>
               <span>有效期至</span>
               <small className={classes.en}>Valid until</small>
             </div>
-            <span>{expired_at}</span>
+            <span>{result.expired_at}</span>
           </div>
 
-          <div className={classes.badges}>
-            <div className={classes.badge}>
-              <div className={classes.flipper}>
-                <div className={classes.front}>
-                  <Image
-                    src={badge2021}
-                    layout="fill"
-                    objectFit="contain"
-                    placeholder="blur"
-                  />
-                </div>
-                <div className={classes.back}>
-                  <p className={classes.time}>
-                    2021年夏季<small className={classes.en}>Summer 2021</small>
-                  </p>
-                  <p>
-                    5门课程<small className={classes.en}>5 Courses</small>
-                  </p>
-                </div>
-              </div>
-              <h5 className={classes.title}>
-                第一期培训
-                <small className={classes.en}>1st Training Session</small>
-              </h5>
-            </div>
-          </div>
+          <div className={classes.badges}>{badgeEls}</div>
         </div>
       </div>
     </>

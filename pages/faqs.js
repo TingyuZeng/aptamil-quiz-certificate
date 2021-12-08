@@ -2,11 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import start from "../public/example-start.png";
-import pass from "../public/example-pass.png";
-import expire from "../public/example-expire.png";
-import fail from "../public/example-fail.png";
-
 import Base from "../components/Base/Base";
 import Banner from "../components/Banner/Banner";
 import Content from "../components/Content/Content";
@@ -14,6 +9,11 @@ import Footer from "../components/Footer/Footer";
 import Button from "../components/Button/Button";
 
 import classes from "../styles/Faqs.module.scss";
+
+const START = "example_start_b3af7213a3.png";
+const PASSED = "example_pass_9b5a6f0025.png";
+const EXPIRED = "example_expire_0dc82ad165.png";
+const FAILED = "example_fail_4d690a650c.png";
 
 const Faqs = () => {
   const router = useRouter();
@@ -72,7 +72,7 @@ const Faqs = () => {
           <div className={classes.example_1}>
             <div className={classes.image}>
               <Image
-                src={start}
+                src={START}
                 width={750}
                 height={1624}
                 alt="开始验证画面"
@@ -84,7 +84,7 @@ const Faqs = () => {
           <div className={classes.example}>
             <div className={classes.image}>
               <Image
-                src={pass}
+                src={PASSED}
                 width={750}
                 height={1624}
                 alt="查询结果1:通过"
@@ -94,7 +94,7 @@ const Faqs = () => {
             </div>
             <div className={classes.image}>
               <Image
-                src={expire}
+                src={EXPIRED}
                 width={750}
                 height={1624}
                 alt="查询结果2:过期"
@@ -104,7 +104,7 @@ const Faqs = () => {
             </div>
             <div className={classes.image}>
               <Image
-                src={fail}
+                src={FAILED}
                 width={750}
                 height={1624}
                 alt="查询结果3:未通过"
